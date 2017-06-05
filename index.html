@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="multiline.css">
 <link rel="stylesheet" href="style.css">
 
 <body>
@@ -221,25 +222,21 @@ d3.tsv("barchart.tsv", function(error, data){
 </script>
 <p>From year to year, the cost of the campaign rose significantly. In 2002, all the candidates earned, together, 1.4 billion reais. 12 years later, this figure rose to 4.4 billion – the values were adjusted to the inflation. </p>
 <p>What seems more surprising is that, during this twelve year span, the amount of money spent by the Car Wash investigated companies increased more than ten fold – from 99 million reais to 1.2 billion reais. This means that the proportion and the importance these companies had during this period increased even more significantly then the cost themselves. </p>
-  <div class="chart-wrapper" id="chart-line1"></div>
-
-<script type="text/javascript">
+  <div class="chart-wrapper" id="yearbyyear"><script type="text/javascript">
     d3.csv('yearbyyear.csv', function(error, data) {
     data.forEach(function (d) {
         d.year = +d.year;
         d.total = +d.total;
-        d.carwash = +d.carwash;
-     });
-
+        d.carwash = +d.carwash;        
+    });
     var chart = makeLineChart(data, 'year', {
-        'Total donations': {column: 'total'},
-        'Car Wash donations': {column: 'carwash'},
-    }, {xAxis: 'Years', yAxis: 'Amount'});
-    chart.bind("#chart-line1");
+        'Total donations (in millions of reais)': {column: 'total'},
+        'Car Wash donations (in millions of reais)': {column: 'carwash'},
+    }, {xAxis: 'Years', yAxis: 'Donations'});
+    chart.bind("#yearbyyear");
     chart.render();
-
 });
-</script>
+  </script></div>
   <br>
 
 <!-- Container (Portfolio Section) -->
