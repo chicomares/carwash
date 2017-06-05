@@ -101,7 +101,7 @@ var svg = d3.select("body").append("svg")
 	.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("barchartpartiescompanies.csv", function(error, data){
+d3.tsv("barchartpartiescompanies.tsv", function(error, data){
 
 	// filter year
 	var data = data.filter(function(d){return d.gambiarra == '1';});
