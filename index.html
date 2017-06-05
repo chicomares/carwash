@@ -3,6 +3,8 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="d3.v3.min.js" charset="utf-8"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,7 +41,7 @@
   <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">FROM THE CAR WASH TO THE CAMPAIGN
 	
-	                                                                                   <br>                   by Chico Marézz</span>
+	                                                                                   <br>                   by Chico Marés</span>
   </div>
 </div>
 
@@ -88,7 +90,6 @@
 <p>Besides being the two most important parties in Brazilian politics during that period, the fact that they both released viable presidential candidates in all four elections also contributed to the high amount of donations received in this period – compared to, for example, PMDB, with a similar number of congressmen and viable candidates for state governments, but received “only” 385 million reais. </p>
 <p>Three other parties received more than 100 million reais: PSB, Democratas (formerly PFL) and PP (formerly PPB). See how much each party received from each investigated company. </p>
 <div id="drop" align=center></div>
-<script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
 var margin = {top: 80, right: 180, bottom: 80, left: 180},
@@ -101,14 +102,14 @@ var svg = d3.select("body").append("svg")
 	.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("barchartpartiescompanies.tsv", function(error, data){
+d3.tsv("barchart.tsv", function(error, data){
 
 	// filter year
-	var data = data.filter(function(d){return d.gambiarra == '1';});
+	var data = data.filter(function(d){return d.Year == '2012';});
 	// Get every column value
 	var elements = Object.keys(data[0])
 		.filter(function(d){
-			return ((d != "gambiarra") & (d != "Party"));
+			return ((d != "Year") & (d != "State"));
 		});
 	var selection = elements[0];
 
@@ -119,7 +120,7 @@ d3.tsv("barchartpartiescompanies.tsv", function(error, data){
 			.range([height, 0]);
 
 	var x = d3.scale.ordinal()
-			.domain(data.map(function(d){ return d.Party;}))
+			.domain(data.map(function(d){ return d.State;}))
 			.rangeBands([0, width]);
 
 
@@ -164,7 +165,7 @@ d3.tsv("barchartpartiescompanies.tsv", function(error, data){
 		})
 		.append("title")
 		.text(function(d){
-			return d.Party + " : " + d[selection];
+			return d.State + " : " + d[selection];
 		});
 
 	var selector = d3.select("#drop")
@@ -192,7 +193,7 @@ d3.tsv("barchartpartiescompanies.tsv", function(error, data){
            		.ease("linear")
            		.select("title")
            		.text(function(d){
-           			return d.Party + " : " + d[selection.value];
+           			return d.State + " : " + d[selection.value];
            		});
       
            	d3.selectAll("g.y.axis")
