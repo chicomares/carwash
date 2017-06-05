@@ -13,7 +13,7 @@ body, html {
     background-size: cover;
 }
 
-.bgimg-2, .bgimg-3, bgimg-4 {
+.bgimg-2, .bgimg-3, .bgimg-4 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
