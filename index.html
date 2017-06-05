@@ -7,6 +7,7 @@
 <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
 <script type="text/javascript" src="d3.v3.min.js" charset="utf-8"></script>
 <script src="multiline.js" charset="utf-8"></script>
+<script src="plotly-latest.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -74,6 +75,23 @@
 	<p>According to economist Sérgio Lazzarini, author of the book Capitalismo de Laços (Connection Capitalism), the Car Wash Operation is an expression of a problem within the Brazilian political and economic system. “The public sector opens opportunities to the private sector – e. g. credit and public concessions. The private sector, then, wants to connect with the government to be an privileged position”, he says. </p>
 <p> “The main mechanism to achieve this connection over the years is supporting political campaigns. Nonetheless, in many cases, what actually happens is pure bribery – they pay politicians to open the doors of the government.” </p>
 <p>David Fleischer, a political scientist who lectures at the National University of Brasília (UnB), these large campaign contributors profited from their donations. “The company has an advantage against their competitors. Many of them, for instance, gained contracts with Petrobras, or were able to improve their contracts, after making these donations”, he says, referring to the investigations. </p>
+  <div id="maioresdoadoras" style="width: 960px; height: 800px;"></div>
+  <script>var trace1 = {
+  x: ['JBS', 'Andrade Gutierrez', 'OAS', 'Camargo Corrêa', 'Queiroz Galvão', 'Itaú', 'UTC Engenharia', 'Banco Alvorada', 'Odebrecht', 'BMG'],
+  y: [460,196,178,163,153,97,90,89,88,62],
+  marker:{
+    color: ['rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(42, 0, 255, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(42, 0, 255, 1)','rgba(42, 0, 255, 1)']
+  },
+  type: 'bar'
+};
+
+var data = [trace1];
+
+var layout = {
+  title: 'Top 10 campaign contributors'
+};
+
+Plotly.newPlot('maioresdoadoras', data, layout);</script>
   </div>
   <br>
   
