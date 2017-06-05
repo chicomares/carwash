@@ -87,6 +87,134 @@
 <p>Of course, some received much more money than others. PT, former presidents Luiz Inácio Lula da Silva and Dilma Rousseff’s party, earned 789 million reais during this period. The main opposition party from 2003 to 2016, PSDB was also favoured by these companies: they received 516 million reais. </p>
 <p>Besides being the two most important parties in Brazilian politics during that period, the fact that they both released viable presidential candidates in all four elections also contributed to the high amount of donations received in this period – compared to, for example, PMDB, with a similar number of congressmen and viable candidates for state governments, but received “only” 385 million reais. </p>
 <p>Three other parties received more than 100 million reais: PSB, Democratas (formerly PFL) and PP (formerly PPB). See how much each party received from each investigated company. </p>
+<div id="drop" align=center></div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 80, right: 180, bottom: 80, left: 180},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("body").append("svg")
+	.attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+	.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("barchartpartiescompanies.csv", function(error, data){
+
+	// filter year
+	var data = data.filter(function(d){return d.gambiarra == '1';});
+	// Get every column value
+	var elements = Object.keys(data[0])
+		.filter(function(d){
+			return ((d != "gambiarra") & (d != "Party"));
+		});
+	var selection = elements[0];
+
+	var y = d3.scale.linear()
+			.domain([0, d3.max(data, function(d){
+				return +d[selection];
+			})])
+			.range([height, 0]);
+
+	var x = d3.scale.ordinal()
+			.domain(data.map(function(d){ return d.Party;}))
+			.rangeBands([0, width]);
+
+
+	var xAxis = d3.svg.axis()
+		.scale(x)
+	    .orient("bottom");
+
+	var yAxis = d3.svg.axis()
+		.scale(y)
+	    .orient("left");
+
+	svg.append("g")
+    	.attr("class", "x axis")
+    	.attr("transform", "translate(0," + height + ")")
+    	.call(xAxis)
+    	.selectAll("text")
+    	.style("font-size", "8px")
+      	.style("text-anchor", "end")
+      	.attr("dx", "-.8em")
+      	.attr("dy", "-.55em")
+      	.attr("transform", "rotate(-90)" );
+
+
+ 	svg.append("g")
+    	.attr("class", "y axis")
+    	.call(yAxis);
+
+	svg.selectAll("rectangle")
+		.data(data)
+		.enter()
+		.append("rect")
+		.attr("class","rectangle")
+		.attr("width", width/data.length)
+		.attr("height", function(d){
+			return height - y(+d[selection]);
+		})
+		.attr("x", function(d, i){
+			return (width / data.length) * i ;
+		})
+		.attr("y", function(d){
+			return y(+d[selection]);
+		})
+		.append("title")
+		.text(function(d){
+			return d.Party + " : " + d[selection];
+		});
+
+	var selector = d3.select("#drop")
+    	.append("select")
+    	.attr("id","dropdown")
+    	.on("change", function(d){
+        	selection = document.getElementById("dropdown");
+
+        	y.domain([0, d3.max(data, function(d){
+				return +d[selection.value];})]);
+
+        	yAxis.scale(y);
+
+        	d3.selectAll(".rectangle")
+           		.transition()
+	            .attr("height", function(d){
+					return height - y(+d[selection.value]);
+				})
+				.attr("x", function(d, i){
+					return (width / data.length) * i ;
+				})
+				.attr("y", function(d){
+					return y(+d[selection.value]);
+				})
+           		.ease("linear")
+           		.select("title")
+           		.text(function(d){
+           			return d.Party + " : " + d[selection.value];
+           		});
+      
+           	d3.selectAll("g.y.axis")
+           		.transition()
+           		.call(yAxis);
+
+         });
+
+    selector.selectAll("option")
+      .data(elements)
+      .enter().append("option")
+      .attr("value", function(d){
+        return d;
+      })
+      .text(function(d){
+        return d;
+      })
+
+
+});
+
+</script>
 <p>From year to year, the cost of the campaign rose significantly. In 2002, all the candidates earned, together, 1.4 billion reais. 12 years later, this figure rose to 4.4 billion – the values were adjusted to the inflation. </p>
 <p>What seems more surprising is that, during this twelve year span, the amount of money spent by the Car Wash investigated companies increased more than ten fold – from 99 million reais to 1.2 billion reais. This means that the proportion and the importance these companies had during this period increased even more significantly then the cost themselves. </p>
   <br>
