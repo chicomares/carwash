@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
 <script type="text/javascript" src="d3.v3.min.js" charset="utf-8"></script>
-<script src="d3.v3.js" charset="utf-8"></script>
 <script src="multiline.js" charset="utf-8"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -99,7 +99,7 @@ var margin = {top: 80, right: 180, bottom: 80, left: 180},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#drop").append("svg")
 	.attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
 	.append("g")
