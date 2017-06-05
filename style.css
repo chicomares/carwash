@@ -6,14 +6,8 @@ body, html {
 }
 
 /* Create a Parallax Effect */
-.bgimg-1 {
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
     background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.bgimg-2, .bgimg-3, .bgimg-4 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
