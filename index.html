@@ -47,7 +47,7 @@
   <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">CAR WASH & ELECTIONS: CRUNCHING THE NUMBERS
 	
-	                                                                                   <br>                   by Chico Marés</span>
+	                                                                                   <br>                   by Chico Maréfs</span>
   </div>
 </div>
 
@@ -525,11 +525,11 @@ function main(o, data) {
 }
 
 if (window.location.hash === "") {
-    d3.json("countries.json", function(err, res) {
+    d3.json("candidatos1.json", function(err, res) {
         if (!err) {
             console.log(res);
-            var data = d3.nest().key(function(d) { return d.region; }).key(function(d) { return d.subregion; }).entries(res);
-            main({title: "World Population"}, {key: "World", values: data});
+            var data = d3.nest().key(function(d) { return d.party; }).key(function(d) { return d.office; }).key(function(d) { return d.candidate; }).entries(res);
+            main({title: "All the donations from Car Wash investigated companies"}, {key: "Donations", values: data});
         }
     });
 }
