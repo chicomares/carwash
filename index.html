@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Car Wash & Elections: Crunching The Numbers</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="jquery.min.js"></script>
@@ -47,7 +47,7 @@
   <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">CAR WASH & ELECTIONS: CRUNCHING THE NUMBERS
 	
-	                                                                                   <br>                   by Chico Maréfs</span>
+	                                                                                   <br>                   by Chico Marézs</span>
   </div>
 </div>
 
@@ -525,7 +525,7 @@ function main(o, data) {
 }
 
 if (window.location.hash === "") {
-    d3.json("candidatos1.json", function(err, res) {
+    d3.json("candidatos2.json", function(err, res) {
         if (!err) {
             console.log(res);
             var data = d3.nest().key(function(d) { return d.party; }).key(function(d) { return d.office; }).key(function(d) { return d.candidate; }).entries(res);
