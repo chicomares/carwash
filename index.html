@@ -537,48 +537,53 @@ if (window.location.hash === "") {
 
 </script>
 <p>The higher the rank, the larger the proportion. Of all elected governors, only one did not receive donations from investigated companies. In the federal Congress, 20 elected senators (75%) and 394 federal deputies (76%) were in the companies’ payroll. 610 state or district deputies (57%), the lowest rank offices on that election, received donations. </p>
-<div id="bolota" style="width: 960px; height: 800px;"></div>
+<div id="bolota" style="width: 960px; height: 600px;"></div>
 <script>
 var data = [{
   values: [26,1],
   labels: ['Received','Did not receive'],
   domain: {
-    x: [0, .23]
+    x: [0, .23],
+    y: [.5, .98]
   },
-  name: 'Governors',
-  hoverinfo: 'label+percent+name',
+  name: 'Governor',
+  hoverinfo: 'label+value+name',
   hole: .4,
   type: 'pie'
 },{
   values: [20,7],
   labels: ['Received','Did not receive'],
-  text: 'Senators',
-  textposition: 'inside',
-  domain: {x: [.23, .48]},
-  name: 'Senators',
-  hoverinfo: 'label+percent+name',
+  domain: {
+    x: [.25, .48],
+    y: [.5, .98]
+  },
+  name: 'Senator',
+  hoverinfo: 'label+value+name',
   hole: .4,
   type: 'pie'
 },{
   values: [394,119],
   labels: ['Received','Did not receive'],
-  text: 'Federal Deputies',
-  textposition: 'inside',
-  domain: {x: [.50, .73]},
-  name: 'Federal Deputies',
-  hoverinfo: 'label+percent+name',
+  domain: {
+    x: [.50, .73],
+    y: [.5, .98]
+  },
+  name: 'Federal Deputy',
+  hoverinfo: 'label+value+name',
   hole: .4,
   type: 'pie'
-},{
+},
+            {
   values: [610,449],
-  labels: ['Received','Did not receive']
-  text: 'State/District Deputies',
+  labels: ['Received','Did not receive'],
+  text: 'State Deputy',
   textposition: 'inside',
-  domain: {x: [.75, 1]},
-  name: 'State/District Deputies',
-  hoverinfo: 'label+percent+name',
+  domain: {x: [.75, 1],
+          y: [.5, .98]},
+  name: 'State Deputy',
+  hoverinfo: 'label+value+name',
   hole: .4,
-  type: 'pie'  
+  type: 'pie'
 }];
 
 var layout = {
@@ -586,46 +591,47 @@ var layout = {
   annotations: [
     {
       font: {
-        size: 14
+        size: 12
       },
       showarrow: false,
-      text: 'Governors',
-      x: 0.09,
-      y: 0.5
-    },
-	{
-      font: {
-        size: 14
-      },
-      showarrow: false,
-      text: 'Senators',
-      x: 0.36,
-      y: 0.5
-    },
-	{
-      font: {
-        size: 14
-      },
-      showarrow: false,
-      text: 'Federal Dep.',
-      x: 0.59,
-      y: 0.5
+      text: 'Governor',
+      x: 0.075,
+      y: 0.76
     },
     {
       font: {
-        size: 14
+        size: 12
       },
       showarrow: false,
-      text: 'State/District Dep.',
-      x: 0.86,
-      y: 0.5
+      text: 'Senator',
+      x: 0.365,
+      y: 0.76
+    },
+    {
+      font: {
+        size: 12
+      },
+      showarrow: false,
+      text: 'Fed. Dep.',
+      x: 0.615,
+      y: 0.76
+    },
+    {
+      font: {
+        size: 12
+      },
+      showarrow: false,
+      text: 'State Dep.',
+      x: 0.92,
+      y: 0.76
     }
   ],
-  height: 800,
+  height: 600,
   width: 960
 };
 
-Plotly.newPlot('bolota', data, layout);
+Plotly.newPlot('myDiv', data, layout);
+
 </script>
 <p>Not surprisingly, incumbent candidate Rousseff, who had the most expensive campaign during those elections, was the main beneficiary of the donations. She received 219 million reais from these companies, 62% of her campaign total earnings. Her main opponent, senator Aécio Neves, received 99 million (41% of his campaign’s earnings). </p>
 <p>In both camps, JBS, the meatpacking giant, was the main contributor – see more on the following section. Andrade Gutierrez and OAS also made meaningful contributions to Rousseff’s re-election bid. Both companies were part of a cartel that controlled contracts with Petrobras and the federal government. In Neves’ case, it was Andrade Gutierrez and Odebrecht – a company that, at the time of the election, was already being investigated for corruption. </p>
