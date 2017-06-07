@@ -48,7 +48,7 @@
   <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">CAR WASH & ELECTIONS: CRUNCHING THE NUMBERS
 	
-	                                                                                   <br>                   by Chico Marétf</span>
+	                                                                                   <br>                   by Chico Marén</span>
   </div>
 </div>
 
@@ -116,7 +116,6 @@ Plotly.newPlot('maioresdoadoras', data, layout);</script>
 <p>Of course, some received much more money than others. PT, former presidents Luiz Inácio Lula da Silva and Dilma Rousseff’s party, earned 789 million reais during this period. The main opposition party from 2003 to 2016, PSDB was also favoured by these companies: they received 516 million reais. </p>
 <p>Besides being the two most important parties in Brazilian politics during that period, the fact that they both released viable presidential candidates in all four elections also contributed to the high amount of donations received in this period – compared to, for example, PMDB, with a similar number of congressmen and viable candidates for state governments, but received “only” 385 million reais. </p>
 <p>Three other parties received more than 100 million reais: PSB, Democratas (formerly PFL) and PP (formerly PPB). See how much each party received from each investigated company. </p>
-<div id="dropperson" align=center></div>
 <div id="drop" align=center></div>
 <script>
 
@@ -196,7 +195,7 @@ d3.tsv("barchart.tsv", function(error, data){
 			return d.State + " : " + d[selection];
 		});
 
-	var selector = d3.select("#dropperson")
+	var selector = d3.select("#drop")
     	.append("select")
     	.attr("id","dropdown")
     	.on("change", function(d){
@@ -635,7 +634,7 @@ Plotly.newPlot('bolota', data, layout);
 </script>
 <p>Not surprisingly, incumbent candidate Rousseff, who had the most expensive campaign during those elections, was the main beneficiary of the donations. She received 219 million reais from these companies, 62% of her campaign total earnings. Her main opponent, senator Aécio Neves, received 99 million (41% of his campaign’s earnings). </p>
 <!-- MEGA SCRIPT -->
-<div id="quecosaloka" align=center>
+<div id="drop" align=center>
 	<script>
 		<script type="text/javascript">
 $(document).ready(function(){
