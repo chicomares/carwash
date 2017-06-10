@@ -298,7 +298,7 @@ d3.tsv("barchart.tsv", function(error, data){
  
 </div> <p>According to Emerson Urizzi Cervi, professor at the Political Sciences department of Federal University of Paraná, it was not the cost of the campaigns that increased, but the volume of contribution from large companies. </p>
 <p> “Large companies started to use campaign donations to strengthen their ties to the political elite”, says Cervi. According to him, these large contributors tend to focus their donations on presidential elections. “The political campaigns got more expensive, but not in a homogeneous way”. </p>
-  <br>
+  </div>
 <br>
 <!-- THIRD IMAGE -->
 <div class="bgimg-3 w3-display-container w3-opacity-min">
@@ -311,8 +311,37 @@ d3.tsv("barchart.tsv", function(error, data){
 <div class="w3-content w3-container w3-padding-64" id="2014">
   <h3 class="w3-center">2014 ELECTIONS</h3>
   <p>Due to changes in the rules by the TSE, the 2014 election accountability report allows us to see with much more detail the dynamics of campaign spending in Brazil. In previous years, we could see how much each candidate received and how much each donor spent, but since they could funnel their donations through parties, it was impossible to say how much money each company donated to each candidate. </p>
+	<!-- left side -->
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+	<div>
+  <input type="checkbox" class="read-more-state" id="post-1" />
+  <div class="read-more-wrap"><p><b>General Elections in Brazil: how do they work?</b></p><br>
+	  <p>The political system in Brazil is somewhat similar to the United States. The executive power is represented by an elected president, and the legislative power is the Congress – divided in the Federal Chamber, equivalent to the Chamber of Representatives, and the Senate. The states have their own elected governments and their own parliaments – called the State Assemblies (except in Brasília, where it’s called District Assembly).</p>
+	  <span class="read-more-target"><p><b>PSDB</b> (Brazilian Social Democratic Party): Despite its name and origins, it’s currently a center-right party. Governed the country from 1995 to 2002, with Fernando Henrique Cardoso, and was the main opposition party in the PT era. Now, supports Temer. </p>
+	  <p>Every four years, in October, there are general elections – in which all the federal and state offices, except for part of the Senate, are renewed. Presidents and governors are elected directly, in a two-round system – if no one reaches more than 50% of the votes, the two best qualified go to the second round. Whoever gets more votes, wins. They can only serve two consecutive terms. </p>
+<p>Senators are also elected by direct popular vote, but the elections are slightly different. Every state, regardless of population, has 3 seats at the senate. Senators have an eight-year term, unlike everyone else. In some elections (such as 2006 and 2014), one senator is elected by state, in a majority one-round system. In others (such as 2010 and 2018), the two best qualified are elected. </p>
+<p>Deputy elections are far more complicated. It’s called “proportional representation with open lists”. It means that the seats are allocated proportionally to the parties’ overall votes in a particular state, but the deputies themselves are chosen by direct popular vote. </p>
+<p>It works like this. When a voter gets to the poll, he can either vote for a party or a candidate – and, automatically, to this candidate’s party. If a party gets 5 seats, the five candidates of that party with the most votes get to the Congress/Assembly, and the rest become stand-ins. </p>
+</span></div>
+  
+  <label for="post-1" class="read-more-trigger"></label>
+  
+</div>
+	  </div>
+
+    <!-- right side -->
+    <div class="w3-col m6 w3-padding-large">
+	
 <p>1,627 candidates were elected for five different offices in that year: 1,059 state/district deputies, 513 federal deputies, 27 senators, 27 governors and, of course, the president. 1,051 of them received donations from companies investigated by the Car Wash operation. </p>
-<div id="chart"></div>
+<p>As in previous years, almost all political groups received donations from these companies – the exceptions are small, extreme left-wing parties. Nonetheless, the amount of money and the proportion of it vary greatly from group to group. </p>
+  
+    </div>
+	
+	
+	<p>Rousseff and Lula’s party, PT received 424 million in total – 44% of their earnings. PSDB, the main opposition party, was ranked second in absolute numbers – 212 million reais (£51 million) – and third in proportion – 29%.</p>
+	  <p>See how much each party and candidate received in donations from these companies:</p>
+	  <div id="chart"></div>
 <script>
 
 
@@ -570,7 +599,7 @@ if (window.location.hash === "") {
 }
 
 </script>
-<p>The higher the rank, the larger the proportion. Of all elected governors, only one did not receive donations from investigated companies. In the federal Congress, 20 elected senators (75%) and 394 federal deputies (76%) were in the companies’ payroll. 610 state or district deputies (57%), the lowest rank offices on that election, received donations. </p>
+<p>The higher the rank, the larger the proportion of donations by companies investigated by the Car Wash Operation. Of all elected governors, only one did not receive donations from investigated companies. In the federal Congress, 20 elected senators (75%) and 394 federal deputies (76%) were in the companies’ payroll. 610 state or district deputies (57%), the lowest rank offices on that election, received donations. </p>
 <div id="bolota" style="width: 960px; height: 600px;"></div>
 <script>
 var data = [{
@@ -667,10 +696,8 @@ var layout = {
 Plotly.newPlot('bolota', data, layout);
 
 </script>
-<p>Not surprisingly, incumbent candidate Rousseff, who had the most expensive campaign during those elections, was the main beneficiary of the donations. She received 219 million reais from these companies, 62% of her campaign total earnings. Her main opponent, senator Aécio Neves, received 99 million (41% of his campaign’s earnings). </p>
+<p>Not surprisingly, incumbent candidate Rousseff, who had the most expensive campaign during those elections, was the main beneficiary of the donations. She received 219 million reais (£52 million) from these companies, 62% of her campaign total earnings. Her main opponent, senator Aécio Neves, received 99 million (£24 million, 41% of his campaign’s earnings). </p>
 <p>In both camps, JBS, the meatpacking giant, was the main contributor – see more on the following section. Andrade Gutierrez and OAS also made meaningful contributions to Rousseff’s re-election bid. Both companies were part of a cartel that controlled contracts with Petrobras and the federal government. In Neves’ case, it was Andrade Gutierrez and Odebrecht – a company that, at the time of the election, was already being investigated for corruption. </p>
-<p>As in previous years, almost all political groups received donations from these companies – the exceptions are small, extreme left-wing parties. Nonetheless, the amount of money and the proportion of it vary greatly from group to group. </p>
-<p>Rousseff and Lula’s party, PT received 424 million in total – 44% of their earnings. PSDB, the main opposition party, was ranked second in absolute numbers – 212 million reais – and third in proportion – 29%. </p>
 
  </div> 
  <br> 
