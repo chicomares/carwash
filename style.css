@@ -63,4 +63,4 @@ body, html {
   shape-rendering: crispEdges;
 }
 
-.display-chico{position:absolute;left:0;bottom:75%}
+.display-chico{position:absolute;right:0;top:75%}
