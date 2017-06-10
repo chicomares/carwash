@@ -1,10 +1,3 @@
-function showMore(){
-    //removes the link
-    document.getElementById('link').parentElement.removeChild('link');
-    //shows the #more
-    document.getElementById('more').style.display = "block";
-}
-
 $(".show-more a").on("click", function() {
     var $this = $(this); 
     var $content = $this.parent().prev("div.content");
