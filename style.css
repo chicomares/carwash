@@ -6,7 +6,7 @@ body, html {
 }
 
 /* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,7 +32,17 @@ body, html {
 }
 
 .bgimg-4 {
-    background-image: url("mpf.jpg");
+    background-image: url("jbs.jpg");
+    min-height: 400px;
+}
+
+.bgimg-5 {
+    background-image: url("eleicoes.jpg");
+    min-height: 400px;
+}
+
+.bgimg-6 {
+    background-image: url("brasilia.jpg");
     min-height: 400px;
 }
 
