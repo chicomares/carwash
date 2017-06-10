@@ -5,13 +5,18 @@ function showMore(){
     document.getElementById('more').style.display = "block";
 }
 
-$(function(){ /* to make sure the script runs after page load */
+$(".show-more a").on("click", function() {
+    var $this = $(this); 
+    var $content = $this.parent().prev("div.content");
+    var linkText = $this.text().toUpperCase();    
+    
+    if(linkText === "SHOW MORE"){
+        linkText = "Show less";
+        $content.switchClass("hideContent", "showContent", 400);
+    } else {
+        linkText = "Show more";
+        $content.switchClass("showContent", "hideContent", 400);
+    };
 
-    $('a.read_more').click(function(event){ /* find all a.read_more elements and bind the following code to them */
-
-        event.preventDefault(); /* prevent the a from changing the url */
-        $(this).parents('.bumbum').find('.more_text').show(); /* show the .more_text span */
-
-    });
-
+    $this.text(linkText);
 });
