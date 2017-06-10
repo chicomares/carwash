@@ -62,3 +62,5 @@ body, html {
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+.display-chico{position:absolute;right:0;bottom:25%}
