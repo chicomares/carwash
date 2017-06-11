@@ -344,7 +344,7 @@ d3.tsv("barchart.tsv", function(error, data){
 	
 	
 		  <p>See how much each party and candidate received from these companies:</p>
-	  <div id="chart"></div>
+	  <div id="allCands"></div>
 <script>
 
 
@@ -372,7 +372,7 @@ function main(o, data) {
       margin = opts.margin,
       theight = 36 + 16;
 
-  $('#chart').width(opts.width).height(opts.height);
+  $('#allCands').width(opts.width).height(opts.height);
   var width = opts.width - margin.left - margin.right,
       height = opts.height - margin.top - margin.bottom - theight,
       transitioning;
@@ -393,7 +393,7 @@ function main(o, data) {
       .ratio(height / width * 0.5 * (1 + Math.sqrt(5)))
       .round(false);
   
-  var svg = d3.select("#chart").append("svg")
+  var svg = d3.select("#allCands").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.bottom + margin.top)
       .style("margin-left", -margin.left + "px")
@@ -416,7 +416,7 @@ function main(o, data) {
       .attr("dy", ".75em");
 
   if (opts.title) {
-    $("#chart").prepend("<p class='title'>" + opts.title + "</p>");
+    $("#allCands").prepend("<p class='title'>" + opts.title + "</p>");
   }
   if (data instanceof Array) {
     root = { key: rname, values: data };
@@ -721,7 +721,7 @@ Plotly.newPlot('bolota', data, layout);
 <p>Batista also paid 500,000 reais (£120,000) illegally to one of Temer’s key assistants, Rodrigo Rocha Loures, and recorded Aécio Neves, senator and defeated opposition presidential candidate in 2014, asking for bribes. Finally, JBS’s CEO stated that former presidents Luís Inácio Lula da Silva and Dilma Rousseff had personal accounts in Switzerland to receive illegal payments from the company. </p>
 <p>As we mentioned before, the CEO also admitted that the vast majority of the campaign contributions he made were, in fact, bribes – around 400 million reais. It is still not clear which of these donations were made due to corruptions schemes. Also, since most donations were made through parties, the money might have ended up with a candidate that had nothing to do with the scheme itself. </p>
 <p> Since 2006, JBS donated to 28 different political parties, from the left to the right – in fact, of all the official political associations that were involved in those three elections, only four small extreme left-wing parties (PSOL, PSTU, PCB and PCO) did not receive any money from the beef conglomerate. </p>
-<div id="treemap"></div>
+<div id="jbsCands"></div>
 <script>
 window.addEventListener('message', function(e) {
     var opts = e.data.opts,
@@ -743,7 +743,7 @@ function main(o, data) {
       rname = opts.rootname,
       margin = opts.margin,
       theight = 36 + 16;
-  $('#treemap').width(opts.width).height(opts.height);
+  $('#jbsCands').width(opts.width).height(opts.height);
   var width = opts.width - margin.left - margin.right,
       height = opts.height - margin.top - margin.bottom - theight,
       transitioning;
@@ -764,7 +764,7 @@ function main(o, data) {
       .ratio(height / width * 0.5 * (1 + Math.sqrt(5)))
       .round(false);
   
-  var svg = d3.select("#treemap").append("svg")
+  var svg = d3.select("#jbsCands").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.bottom + margin.top)
       .style("margin-left", -margin.left + "px")
@@ -786,7 +786,7 @@ function main(o, data) {
       .attr("y", 6 - margin.top)
       .attr("dy", ".75em");
   if (opts.title) {
-    $("#treemap").prepend("<p class='title'>" + opts.title + "</p>");
+    $("#jbsCands").prepend("<p class='title'>" + opts.title + "</p>");
   }
   if (data instanceof Array) {
     root = { key: rname, values: data };
