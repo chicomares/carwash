@@ -960,6 +960,56 @@ if (window.location.hash === "") {
 <p>Although it might seem, at first glance, like a simple solution to this corruption problem, it might actually bring many undesired consequences. There’s a fear, expressed by many political leaderships, political scientists and some ministers of the court at the time, that this will result in an increase on illegal payments. Corrupt companies might continue to finance political campaigns in exchange for public benefits, either through proxy donors or simply by paying politicians under the table. </p>
 <p>Cervi also points out that, under current trends, there will simply not be enough money to fund the campaigns. Even though the 2010 and 2014 were, in his view, extraordinarily expensive due to an overabundance of private company donations, the money required for travels, campaign ads and all the ordinary costs of a state or national election far exceeds what’s available on public funds. And a culture of individual contributions from regular citizens simply does not exist in the country. </p>
 <p>The available data ratifies his view. In 2014, 70% of the campaign was funded by companies, 22% by individuals and 8% by the parties themselves – mostly, from the public political fund. If we dig deeper, the vast majority of individual contributions came from candidates themselves. Only 3% of total donations come from non-candidates. </p>
+	<div id="sources" style="width: 960px; height: 800px;"></div>
+	<script>var data = [{
+  values: [3074532581,960885722,356158634],
+  labels: ['Companies','Individuals','Party (including public funding)' ],
+  domain: {
+    x: [0, .48]
+  },
+  name: 'All donations',
+  hoverinfo: 'label+percent+name',
+  hole: .4,
+  type: 'pie'
+},{
+  values: [135134947,450765785,374984990],
+  labels: ['Regular citizens', 'Other candidates', 'Self funding'],
+  text: 'Individual donations',
+  textposition: 'inside',
+  domain: {x: [.52, 1]},
+  name: 'Individual donations',
+  hoverinfo: 'label+percent+name',
+  hole: .4,
+  type: 'pie'
+}];
+
+var layout = {
+  title: 'Sources of income in the 2014 campaign',
+  annotations: [
+    {
+      font: {
+        size: 14
+      },
+      showarrow: false,
+      text: 'All donations',
+      x: 0.17,
+      y: 0.2
+    },
+    {
+      font: {
+        size: 14
+      },
+      showarrow: false,
+      text: 'Individual donations',
+      x: 0.88,
+      y: 0.2
+    }
+  ],
+  height: 800,
+  width: 960
+};
+
+		Plotly.newPlot('sources', data, layout);</script>
 <p>According to Cervi, amongst the political elites, there is a consensus that this model will not prosper. Nonetheless, they are deeply divided on the options – raising state funding and amending the constitution to allow company donations are amongst the possible outcomes. Also, social reforms proposed by the current government and the political crisis itself seem to occupy all the working hours of the Congress. </p>
 	</div>
 <!-- sixth IMAGE -->
