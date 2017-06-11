@@ -765,11 +765,11 @@ function main(o, data) {
   
   var color = d3.scale.category20c();
   
-  var x = d3.scale.linear()
+  var z = d3.scale.linear()
       .domain([0, width])
       .range([0, width]);
   
-  var y = d3.scale.linear()
+  var n = d3.scale.linear()
       .domain([0, height])
       .range([0, height]);
   
@@ -782,8 +782,8 @@ function main(o, data) {
   var svg = d3.select("#jbstree").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.bottom + margin.top)
-      .style("margin-left", -margin.left + "px")
-      .style("margin.right", -margin.right + "px")
+      .style("margin-left", -margin.left + "pz")
+      .style("margin.right", -margin.right + "pz")
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       .style("shape-rendering", "crispEdges");
@@ -792,14 +792,14 @@ function main(o, data) {
       .attr("class", "grandparent");
   
   grandparent.append("rect")
-      .attr("y", -margin.top)
+      .attr("n", -margin.top)
       .attr("width", width)
       .attr("height", margin.top);
   
   grandparent.append("text")
-      .attr("x", 6)
-      .attr("y", 6 - margin.top)
-      .attr("dy", ".75em");
+      .attr("z", 6)
+      .attr("n", 6 - margin.top)
+      .attr("dn", ".75em");
 
   if (opts.title) {
     $("#jbstree").prepend("<p class='title'>" + opts.title + "</p>");
@@ -822,9 +822,9 @@ function main(o, data) {
   }
 
   function initialize(root) {
-    root.x = root.y = 0;
-    root.dx = width;
-    root.dy = height;
+    root.z = root.n = 0;
+    root.dz = width;
+    root.dn = height;
     root.depth = 0;
   }
 
@@ -849,10 +849,10 @@ function main(o, data) {
     if (d._children) {
       treemap.nodes({_children: d._children});
       d._children.forEach(function(c) {
-        c.x = d.x + c.x * d.dx;
-        c.y = d.y + c.y * d.dy;
-        c.dx *= d.dx;
-        c.dy *= d.dy;
+        c.z = d.z + c.z * d.dz;
+        c.n = d.n + c.n * d.dn;
+        c.dz *= d.dz;
+        c.dn *= d.dn;
         c.parent = d;
         layout(c);
       });
@@ -898,12 +898,12 @@ function main(o, data) {
 
     var t = g.append("text")
         .attr("class", "ptext")
-        .attr("dy", ".75em")
+        .attr("dn", ".75em")
 
     t.append("tspan")
         .text(function(d) { return d.key; });
     t.append("tspan")
-        .attr("dy", "1.0em")
+        .attr("dn", "1.0em")
         .text(function(d) { return formatNumber(d.value); });
     t.call(text);
 
@@ -919,8 +919,8 @@ function main(o, data) {
           t2 = g2.transition().duration(750);
 
       // Update the domain only after entering new elements.
-      x.domain([d.x, d.x + d.dx]);
-      y.domain([d.y, d.y + d.dy]);
+      z.domain([d.z, d.z + d.dz]);
+      n.domain([d.n, d.n + d.dn]);
 
       // Enable anti-aliasing during the transition.
       svg.style("shape-rendering", null);
@@ -951,23 +951,23 @@ function main(o, data) {
 
   function text(text) {
     text.selectAll("tspan")
-        .attr("x", function(d) { return x(d.x) + 6; })
-    text.attr("x", function(d) { return x(d.x) + 6; })
-        .attr("y", function(d) { return y(d.y) + 6; })
-        .style("opacity", function(d) { return this.getComputedTextLength() < x(d.x + d.dx) - x(d.x) ? 1 : 0; });
+        .attr("z", function(d) { return z(d.z) + 6; })
+    text.attr("z", function(d) { return z(d.z) + 6; })
+        .attr("n", function(d) { return n(d.n) + 6; })
+        .style("opacity", function(d) { return this.getComputedTextLength() < z(d.z + d.dz) - z(d.z) ? 1 : 0; });
   }
 
   function text2(text) {
-    text.attr("x", function(d) { return x(d.x + d.dx) - this.getComputedTextLength() - 6; })
-        .attr("y", function(d) { return y(d.y + d.dy) - 6; })
-        .style("opacity", function(d) { return this.getComputedTextLength() < x(d.x + d.dx) - x(d.x) ? 1 : 0; });
+    text.attr("z", function(d) { return z(d.z + d.dz) - this.getComputedTextLength() - 6; })
+        .attr("n", function(d) { return n(d.n + d.dn) - 6; })
+        .style("opacity", function(d) { return this.getComputedTextLength() < z(d.z + d.dz - z(d.z) ? 1 : 0; });
   }
 
   function rect(rect) {
-    rect.attr("x", function(d) { return x(d.x); })
-        .attr("y", function(d) { return y(d.y); })
-        .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
-        .attr("height", function(d) { return y(d.y + d.dy) - y(d.y); });
+    rect.attr("z", function(d) { return z(d.z); })
+        .attr("n", function(d) { return n(d.n); })
+        .attr("width", function(d) { return z(d.z + d.dz) - z(d.z); })
+        .attr("height", function(d) { return n(d.n + d.dn) - n(d.n); });
   }
 
   function name(d) {
@@ -986,6 +986,7 @@ if (window.location.hash === "") {
         }
     });
 }
+
 
 </script>	
 <p> Since 2006, JBS donated to 28 different political parties, from the left to the right – in fact, of all the official political associations that were involved in those three elections, only four small extreme left-wing parties (PSOL, PSTU, PCB and PCO) did not receive any money from the beef conglomerate. </p>
