@@ -285,6 +285,30 @@ d3.tsv("barchart.tsv", function(error, data){
 </script>
 <p>From year to year, the cost of the campaign rose significantly. In 2002, all the candidates earned, together, 1.4 billion reais (£335 million). 12 years later, this figure rose to 4.4 billion (£1 billion) – the values were adjusted to the inflation. </p>
 <p>What seems more surprising is that, during this twelve year span, the amount of money spent by the Car Wash investigated companies increased more than tenfold – from 99 million reais (£24 million) to 1.2 billion reais (£287 million). </p>
+<div id="barras" style="width: 960px; height: 800px;"></div>
+  <script>
+    var trace1 = {
+  x: ['2002 elections','2006 elections', '2010 elections', '2014 elections'],
+  y: [1351,1712,3050,3148],
+  hoverinfo: 'name+y',
+  name: 'Other donations',
+  type: 'bar'
+};
+
+var trace2 = {
+  x: ['2002 elections','2006 elections', '2010 elections', '2014 elections'],
+  y: [99,229,974,1243],
+  hoverinfo: 'name+y',
+  name: 'Car Wash donations',
+  type: 'bar'
+};
+
+var data = [trace1, trace2];
+
+var layout = {title: 'Total election contributions (in millions of reais)', barmode: 'stack'};
+
+Plotly.newPlot('barras', data, layout);
+  </script>
 <p>According to Emerson Urizzi Cervi, professor at the Political Sciences department of Federal University of Paraná, it was not the cost of the campaigns that increased, but the volume of contribution from large companies. </p>
 <p> “Large companies started to use campaign donations to strengthen their ties to the political elite”, says Cervi. According to him, these large contributors tend to focus their donations on presidential elections. “The political campaigns got more expensive, but not in a homogeneous way”. </p>
 	</div>
